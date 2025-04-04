@@ -3,7 +3,7 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   return (
-    <div className="photo-list__item" key={sampleDataForPhotoListItem.id}>
+    <div className="photo-list__item">
       <img
         className="photo-list__image"
         src={sampleDataForPhotoListItem.urls.regular}

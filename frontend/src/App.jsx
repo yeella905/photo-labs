@@ -61,6 +61,7 @@ const App = () => {
       <div>
         {sampleDataForPhotoList.map((sampleDataForPhotoListItem) => (
           <PhotoListItem
+            key={sampleDataForPhotoListItem.id}
             sampleDataForPhotoListItem={sampleDataForPhotoListItem}
           />
         ))}
