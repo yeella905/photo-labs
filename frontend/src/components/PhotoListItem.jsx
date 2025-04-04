@@ -1,24 +1,18 @@
+import React from "react";
 import "../styles/PhotoListItem.scss";
 
-const sampleDataForPhotoListItem = {
-  id: 1,
-  location: {
-    city: "Montreal",
-    country: "Canada",
-  },
-  urls: {
-    full: "/Image-1-Full.jpeg",
-    regular: "/Image-1-Regular.jpeg",
-  },
-  user: {
-    username: "exampleuser",
-    name: "Joe Example",
-    profile: "/profile-1.jpg",
-  },
-};
-
-const PhotoListItem = () => {
-  /* Insert React */
+const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
+  return (
+    <li key={sampleDataForPhotoListItem.id}>
+      <img src={sampleDataForPhotoListItem.urls.regular} />
+      <img src={sampleDataForPhotoListItem.user.profile} />
+      <p>{sampleDataForPhotoListItem.user.name}</p>
+      <p>
+        {sampleDataForPhotoListItem.location.city},{" "}
+        {sampleDataForPhotoListItem.location.country}
+      </p>
+    </li>
+  );
 };
 
 export default PhotoListItem;
