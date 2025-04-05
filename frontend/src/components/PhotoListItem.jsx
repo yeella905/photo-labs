@@ -1,9 +1,13 @@
 import React from "react";
 import "../styles/PhotoListItem.scss";
+import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   return (
     <div className="photo-list__item">
+      <div className="photo-list__fav-icon">
+        <PhotoFavButton/>
+        </div>
       <img
         className="photo-list__image"
         src={sampleDataForPhotoListItem.urls.regular}
