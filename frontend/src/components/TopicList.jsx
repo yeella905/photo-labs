@@ -1,7 +1,7 @@
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
-// const sampleDataForTopicList = [
+// const topics = [
 //   {
 //     id: 1,
 //     slug: "topic-1",
@@ -19,12 +19,12 @@ import TopicListItem from "./TopicListItem";
 //   },
 // ];
 
-const TopicList = ({sampleDataForTopicList}) => {
+const TopicList = ({topics}) => {
   return (
     <div className="top-nav-bar__topic-list">
-      {sampleDataForTopicList.map((sampleTopic) => (
+      {topics.map((sampleTopic) => (
     <TopicListItem
-    sampleDataForTopicListItem={sampleTopic}
+    topicsItem={sampleTopic}
     />
       ))}
     </div>

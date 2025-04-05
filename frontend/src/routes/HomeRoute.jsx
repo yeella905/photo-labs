@@ -2,11 +2,11 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({sampleDataForTopicList, sampleDataForPhotoList}) => {
+const HomeRoute = ({topics, photos}) => {
   return (
     <div className="home-route">
-        <TopNavigationBar sampleDataForTopicList={sampleDataForTopicList}/>
-        <PhotoList sampleDataForPhotoList={sampleDataForPhotoList}/>
+        <TopNavigationBar topics={topics}/>
+        <PhotoList photos={photos}/>
         
     
     </div>

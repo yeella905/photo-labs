@@ -2,25 +2,25 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
+const PhotoListItem = ({ photosItem }) => {
   return (
     <div className="photo-list__item">
         <PhotoFavButton/>
       <img
         className="photo-list__image"
-        src={sampleDataForPhotoListItem.urls.regular}
+        src={photosItem.urls.regular}
       />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
-          src={sampleDataForPhotoListItem.user.profile}
+          src={photosItem.user.profile}
         />
         <div className="photo-list__user-info">
-          <p>{sampleDataForPhotoListItem.user.name}</p>
+          <p>{photosItem.user.name}</p>
           <div className="photo-list__user-location ">
             <p>
-              {sampleDataForPhotoListItem.location.city},{" "}
-              {sampleDataForPhotoListItem.location.country}
+              {photosItem.location.city},{" "}
+              {photosItem.location.country}
             </p>
           </div>
         </div>

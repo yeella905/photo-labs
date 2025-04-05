@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <div className="App">
-     <HomeRoute sampleDataForTopicList={topics} sampleDataForPhotoList={photos}/>
+     <HomeRoute topics={topics} photos={photos}/>
     </div>
   );
 };

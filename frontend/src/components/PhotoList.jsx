@@ -1,7 +1,7 @@
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
-// const sampleDataForPhotoList = [
+// const photos = [
 //   {
 //     id: 1,
 //     location: {
@@ -52,13 +52,13 @@ import PhotoListItem from "./PhotoListItem";
 //   },
 // ];
 
-const PhotoList = ({sampleDataForPhotoList}) => {
+const PhotoList = ({photos}) => {
   return (
     <ul className="photo-list">
-       {sampleDataForPhotoList.map((sampleDataForPhotoListItem) => (
+       {photos.map((photosItem) => (
      <PhotoListItem
-      key={sampleDataForPhotoListItem.id}
-       sampleDataForPhotoListItem={sampleDataForPhotoListItem}
+      key={photosItem.id}
+       photosItem={photosItem}
     />
 ))}
     </ul>
