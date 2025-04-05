@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.scss";
-import PhotoList from "./components/PhotoList";
-import TopNavigationBar from "./components/TopNavigationBar";
+import HomeRoute from "./routes/HomeRoute";
 
 
 
@@ -9,10 +8,7 @@ import TopNavigationBar from "./components/TopNavigationBar";
 const App = () => {
   return (
     <div className="App">
-      <div>
-        <TopNavigationBar/>
-        <PhotoList/>
-      </div>
+     <HomeRoute/>
     </div>
   );
 };
