@@ -2,17 +2,11 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 import { useState } from 'react';
 
-const PhotoFavButton = ({photo, favPhotoList, setFavPhotoList}) => {
+const PhotoFavButton = ({updateToFavPhotoIds, photo}) => {
     const [selected, setSelected] = useState(false)
     const toggleModal = () => {
         setSelected(!selected)
-        const exists = favPhotoList.some(p => p.id === photo.id)
-        if(exists){
-            const newArray = favPhotoList.filter(p => p.id !== photo.id)
-            setFavPhotoList(newArray)
-        }else{
-            setFavPhotoList([...favPhotoList, photo]) 
-        }
+        updateToFavPhotoIds(photo)
     }
     return (
     <div className="photo-list__fav-icon">

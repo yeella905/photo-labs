@@ -1,19 +1,15 @@
 import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
+import { useApplicationData } from "../hooks/useApplicationData";
 
-const PhotoListItem = ({ photosItem , favPhotoList, setFavPhotoList, toggleModal, setPhoto}) => {
- 
-    const handleClick = () => {
-        toggleModal()
-        setPhoto(photosItem)
-    }
+const PhotoListItem = ({ photosItem , onPhotoSelect, updateToFavPhotoIds}) => {
 
 
   return (
     <div className="photo-list__item">
-        <PhotoFavButton photo={photosItem} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList}/>
-      <img onClick={handleClick}
+        <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photo={photosItem}/>
+      <img onClick={() => onPhotoSelect(photosItem)}
         className="photo-list__image"
         src={photosItem.urls.regular}
       />

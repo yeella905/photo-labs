@@ -2,11 +2,11 @@ import TopNavigationBar from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({topics, photos, favPhotoList, setFavPhotoList, toggleModal, setPhoto}) => {
+const HomeRoute = ({state, onPhotoSelect, updateToFavPhotoIds}) => {
   return (
     <div className="home-route">
-        <TopNavigationBar topics={topics} favPhotoList={favPhotoList}/>
-        <PhotoList photos={photos} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} toggleModal={toggleModal} setPhoto={setPhoto}/>
+        <TopNavigationBar topics={state.topics} favPhotoList={state.favPhotoList}/>
+        <PhotoList photos={state.photos}  onPhotoSelect={onPhotoSelect} updateToFavPhotoIds={updateToFavPhotoIds} />
         
     
     </div>

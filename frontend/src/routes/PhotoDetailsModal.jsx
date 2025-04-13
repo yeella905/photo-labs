@@ -3,11 +3,11 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoListItem from '../components/PhotoListItem';
 
 
-const PhotoDetailsModal = ({photo, closeModal, photos, favPhotoList,setFavPhotoList, toggleModal, setPhoto}) => {
+const PhotoDetailsModal = ({photo, onClosePhotoDetailsModal, updateToFavPhotoIds, onPhotoSelect}) => {
     console.log(photo)
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={closeModal}>
+      <button className="photo-details-modal__close-button" onClick={onClosePhotoDetailsModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div>
@@ -36,10 +36,10 @@ const PhotoDetailsModal = ({photo, closeModal, photos, favPhotoList,setFavPhotoL
       </div>
       <ul className="photo-list">
        {Object.entries(photo.similar_photos).map((photosItem) => (
-     <PhotoListItem toggleModal={toggleModal}
+     <PhotoListItem onPhotoSelect={onPhotoSelect}
       key={photosItem[1].id}
        photosItem={photosItem[1]}
-       favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} setPhoto={setPhoto}
+       updateToFavPhotoIds={updateToFavPhotoIds} 
     />
 ))}
     </ul>
