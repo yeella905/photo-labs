@@ -1,25 +1,30 @@
 import React from "react";
 import "../styles/PhotoListItem.scss";
+import PhotoFavButton from "./PhotoFavButton";
+import { useApplicationData } from "../hooks/useApplicationData";
 
-const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
+const PhotoListItem = ({ photosItem , onPhotoSelect, updateToFavPhotoIds}) => {
+
+
   return (
     <div className="photo-list__item">
-      <img
+        <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photo={photosItem}/>
+      <img onClick={() => onPhotoSelect(photosItem)}
         className="photo-list__image"
-        src={sampleDataForPhotoListItem.urls.regular}
+        src={photosItem.urls.regular}
       />
       <div className="photo-list__user-details">
         <img
           className="photo-list__user-profile"
-          src={sampleDataForPhotoListItem.user.profile}
+          src={photosItem.user.profile}
         />
         <div className="photo-list__user-info">
-          <p>{sampleDataForPhotoListItem.user.name}</p>
+          <div>{photosItem.user.name}</div>
           <div className="photo-list__user-location ">
-            <p>
-              {sampleDataForPhotoListItem.location.city},{" "}
-              {sampleDataForPhotoListItem.location.country}
-            </p>
+            <div>
+              {photosItem.location.city},{" "}
+              {photosItem.location.country}
+              </div>
           </div>
         </div>
       </div>

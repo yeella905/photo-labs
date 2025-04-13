@@ -1,71 +1,28 @@
-import React from "react";
-
-import PhotoListItem from "./components/PhotoListItem";
+import React, {useState} from "react";
 import "./App.scss";
+import HomeRoute from "./routes/HomeRoute";
 
-const sampleDataForPhotoList = [
-  {
-    id: 1,
-    location: {
-      city: "Montreal",
-      country: "Canada",
-    },
-    urls: {
-      full: "/Image-1-Full.jpeg",
-      regular: "/Image-1-Regular.jpeg",
-    },
-    user: {
-      username: "exampleuser",
-      name: "Joe Example",
-      profile: "/profile-1.jpg",
-    },
-  },
-  {
-    id: 2,
-    location: {
-      city: "Montreal",
-      country: "Canada",
-    },
-    urls: {
-      full: "/Image-1-Full.jpeg",
-      regular: "/Image-1-Regular.jpeg",
-    },
-    user: {
-      username: "exampleuser",
-      name: "Joe Example",
-      profile: "/profile-1.jpg",
-    },
-  },
-  {
-    id: 2,
-    location: {
-      city: "Montreal",
-      country: "Canada",
-    },
-    urls: {
-      full: "/Image-1-Full.jpeg",
-      regular: "/Image-1-Regular.jpeg",
-    },
-    user: {
-      username: "exampleuser",
-      name: "Joe Example",
-      profile: "/profile-1.jpg",
-    },
-  },
-];
+import PhotoDetailsModal from "./routes/PhotoDetailsModal";
+import { useApplicationData } from "./hooks/useApplicationData";
+
+
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+
+    const {
+        state,
+        onPhotoSelect,
+        updateToFavPhotoIds,
+        onClosePhotoDetailsModal,
+        onLoadTopic,
+      } = useApplicationData();
+
+
   return (
     <div className="App">
-      <div>
-        {sampleDataForPhotoList.map((sampleDataForPhotoListItem) => (
-          <PhotoListItem
-            key={sampleDataForPhotoListItem.id}
-            sampleDataForPhotoListItem={sampleDataForPhotoListItem}
-          />
-        ))}
-      </div>
+     <HomeRoute state={state} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />
+     {state.showModal && (<PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} photo={state.photo} photos={state.photos} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />)}
     </div>
   );
 };

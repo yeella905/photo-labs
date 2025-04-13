@@ -16,7 +16,9 @@ div.photo-list__item {
   }
 
   div.photo-list__user-details {
+    align-items: center;
     display: flex;
+    margin: 10px 0px;
 
     img.photo-list__user-profile {
       object-fit: cover;
