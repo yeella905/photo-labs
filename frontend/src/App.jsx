@@ -21,7 +21,7 @@ const handleClick = () => {
   return (
     <div className="App">
      <HomeRoute topics={topics} photos={photos} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} handleClick={handleClick}/>
-     {showModal && (<PhotoDetailsModal/>)}
+     {showModal && (<PhotoDetailsModal handleclose={handleClick}/>)}
     </div>
   );
 };
