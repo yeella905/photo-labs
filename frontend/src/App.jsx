@@ -22,7 +22,7 @@ const toggleModal = () => {
   return (
     <div className="App">
      <HomeRoute topics={topics} photos={photos} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} toggleModal={toggleModal} setPhoto={setPhoto}/>
-     {showModal && (<PhotoDetailsModal closeModal={toggleModal} photo={photo}/>)}
+     {showModal && (<PhotoDetailsModal closeModal={toggleModal} photo={photo} photos={photos} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} toggleModal={toggleModal} setPhoto={setPhoto}/>)}
     </div>
   );
 };
