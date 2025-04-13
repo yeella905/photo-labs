@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const PhotoFavButton = ({photo, favPhotoList, setFavPhotoList}) => {
     const [selected, setSelected] = useState(false)
-    const handleClick = () => {
+    const toggleModal = () => {
         setSelected(!selected)
         const exists = favPhotoList.some(p => p.id === photo.id)
         if(exists){
@@ -16,7 +16,7 @@ const PhotoFavButton = ({photo, favPhotoList, setFavPhotoList}) => {
     }
     return (
     <div className="photo-list__fav-icon">
-      <div onClick={handleClick} className="photo-list__fav-icon-svg">
+      <div onClick={toggleModal} className="photo-list__fav-icon-svg">
         <FavIcon displayAlert={false} selected={selected} />
       </div>
     </div>

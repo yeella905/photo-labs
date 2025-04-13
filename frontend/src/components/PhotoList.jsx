@@ -52,11 +52,11 @@ import PhotoListItem from "./PhotoListItem";
 //   },
 // ];
 
-const PhotoList = ({photos, favPhotoList, setFavPhotoList, handleClick}) => {
+const PhotoList = ({photos, favPhotoList, setFavPhotoList, toggleModal}) => {
   return (
     <ul className="photo-list">
        {photos.map((photosItem) => (
-     <PhotoListItem handleClick={handleClick}
+     <PhotoListItem toggleModal={toggleModal}
       key={photosItem.id}
        photosItem={photosItem}
        favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList}

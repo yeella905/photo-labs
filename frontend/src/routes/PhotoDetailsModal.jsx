@@ -1,10 +1,10 @@
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({photo, handleclose, display}) => {
+const PhotoDetailsModal = ({photo, closeModal, display}) => {
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={handleclose}>
+      <button className="photo-details-modal__close-button" onClick={closeModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
     </div>
