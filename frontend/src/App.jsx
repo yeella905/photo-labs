@@ -12,12 +12,16 @@ const App = () => {
 
 
   const [favPhotoList, setFavPhotoList] = useState([])
+const [showModal, setShowModal] = useState(false)
 
+const handleClick = () => {
+    setShowModal(!showModal)
+}
 
   return (
     <div className="App">
-     <HomeRoute topics={topics} photos={photos} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList}/>
-    
+     <HomeRoute topics={topics} photos={photos} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} handleClick={handleClick}/>
+     {showModal && (<PhotoDetailsModal/>)}
     </div>
   );
 };
