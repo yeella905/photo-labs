@@ -1,6 +1,7 @@
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
-import PhotoList from '../components/PhotoList';
+import PhotoListItem from '../components/PhotoListItem';
+
 
 const PhotoDetailsModal = ({photo, closeModal, photos, favPhotoList,setFavPhotoList, toggleModal, setPhoto}) => {
     console.log(photo)
@@ -33,7 +34,15 @@ const PhotoDetailsModal = ({photo, closeModal, photos, favPhotoList,setFavPhotoL
       <div>
         Similar Photos
       </div>
-      <PhotoList photos={photos} favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} toggleModal={toggleModal} setPhoto={setPhoto}/>
+      <ul className="photo-list">
+       {Object.entries(photo.similar_photos).map((photosItem) => (
+     <PhotoListItem toggleModal={toggleModal}
+      key={photosItem[1].id}
+       photosItem={photosItem[1]}
+       favPhotoList={favPhotoList} setFavPhotoList={setFavPhotoList} setPhoto={setPhoto}
+    />
+))}
+    </ul>
       </div>
     </div>
   )
