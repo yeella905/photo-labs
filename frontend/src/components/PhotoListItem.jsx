@@ -23,12 +23,12 @@ const PhotoListItem = ({ photosItem , favPhotoList, setFavPhotoList, toggleModal
           src={photosItem.user.profile}
         />
         <div className="photo-list__user-info">
-          <p>{photosItem.user.name}</p>
+          <div>{photosItem.user.name}</div>
           <div className="photo-list__user-location ">
-            <p>
+            <div>
               {photosItem.location.city},{" "}
               {photosItem.location.country}
-            </p>
+              </div>
           </div>
         </div>
       </div>
