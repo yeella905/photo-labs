@@ -24,6 +24,7 @@ const TopicList = ({topics}) => {
     <div className="top-nav-bar__topic-list">
       {topics.map((sampleTopic) => (
     <TopicListItem
+    key={sampleTopic.id}
     topicsItem={sampleTopic}
     />
       ))}
