@@ -1,37 +1,69 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
 import topics from "../mocks/topics";
 import photos from "../mocks/photos";
 
+// Initial state
+const initalState = {
+    showModal: false, 
+    photo:{}, 
+    favPhotoList:[], 
+    photos:photos, 
+    topics:topics
+
+}
+
+export const ACTIONS = {
+    SELECT_PHOTO: 'SELECT_PHOTO',
+    CLOSE_MODAL: 'CLOSE_MODAL',
+    TOGGLE_FAV_PHOTO: 'TOGGLE_FAV_PHOTO',
+  }
+  
+function reducer(state, action) {
+    switch (action.type) {
+        case ACTIONS.SELECT_PHOTO:
+            return {
+                ...state, 
+                showModal:true,
+                photo: action.payload
+            };
+        case ACTIONS.CLOSE_MODAL:
+            return {
+                ...state, 
+                showModal:false
+            };
+        case ACTIONS.TOGGLE_FAV_PHOTO:
+            const exists = state.favPhotoList.some(p => p.id === action.payload.id);
+            const favPhotoList = exists ? state.favPhotoList.filter(p => p.id !== action.payload.id) : [...state.favPhotoList, action.payload];
+            return {
+                ...state, favPhotoList
+             
+            };
+        default:  
+        return state;
+    }
+};
+
+
 export const useApplicationData = () => {
-    const [state, setState] = useState({showModal: false, photo:{}, favPhotoList:[], photos:photos, topics:topics});
+    const [state, dispatch] = useReducer(reducer, initalState);
+   
   
     const onPhotoSelect = (photo) => {
-        console.log("all")
-        setState({...state, showModal:true, photo:photo})
-        console.log(state)
+       dispatch({type:ACTIONS.SELECT_PHOTO, payload:photo})
     }
 
     const onClosePhotoDetailsModal = () => {
-        setState({...state, showModal:false})
+        dispatch({type: ACTIONS.CLOSE_MODAL})
     }
 
     const updateToFavPhotoIds = (photo) => {
-        const exists = state.favPhotoList.some(p => p.id === photo.id)
-        if(exists){
-            const newArray = state.favPhotoList.filter(p => p.id !== photo.id)
-            setState({...state, favPhotoList:newArray})
-        }else{
-            setState({...state, favPhotoList:[...state.favPhotoList, photo]}) 
-        }
+        dispatch({type:ACTIONS.TOGGLE_FAV_PHOTO, payload:photo})
     }
-
-    const onLoadTopic = () => {}
   
     return { 
         state,
         onPhotoSelect,
         onClosePhotoDetailsModal,
-        updateToFavPhotoIds,
-        onLoadTopic
+        updateToFavPhotoIds
     };
   };
