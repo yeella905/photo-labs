@@ -19,13 +19,14 @@ import TopicListItem from "./TopicListItem";
 //   },
 // ];
 
-const TopicList = ({topics}) => {
+const TopicList = ({topics, updateGetTopicPhotos}) => {
   return (
     <div className="top-nav-bar__topic-list">
       {topics.map((sampleTopic) => (
     <TopicListItem
     key={sampleTopic.id}
-    topicsItem={sampleTopic}
+    topicsItem={sampleTopic} 
+    updateGetTopicPhotos={updateGetTopicPhotos}
     />
       ))}
     </div>

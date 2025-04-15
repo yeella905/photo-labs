@@ -1,28 +1,35 @@
-import React, {useState} from "react";
+import React from "react";
 import "./App.scss";
 import HomeRoute from "./routes/HomeRoute";
-
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
 import { useApplicationData } from "./hooks/useApplicationData";
 
-
-
-// Note: Rendering a single component to build components in isolation
 const App = () => {
-
-    const {
-        state,
-        onPhotoSelect,
-        updateToFavPhotoIds,
-        onClosePhotoDetailsModal,
-        onLoadTopic,
-      } = useApplicationData();
-
+  const {
+    state,
+    onPhotoSelect,
+    updateToFavPhotoIds,
+    onClosePhotoDetailsModal,
+    updateGetTopicPhotos
+  } = useApplicationData();
 
   return (
     <div className="App">
-     <HomeRoute state={state} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />
-     {state.showModal && (<PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} photo={state.photo} photos={state.photos} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />)}
+      <HomeRoute
+        state={state}
+        updateToFavPhotoIds={updateToFavPhotoIds}
+        onPhotoSelect={onPhotoSelect}
+        updateGetTopicPhotos={updateGetTopicPhotos}
+      />
+      {state.showModal && (
+        <PhotoDetailsModal
+          onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+          photo={state.photo}
+          photos={state.photos}
+          updateToFavPhotoIds={updateToFavPhotoIds}
+          onPhotoSelect={onPhotoSelect}
+        />
+      )}
     </div>
   );
 };
