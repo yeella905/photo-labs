@@ -5,7 +5,7 @@ import TopicList from './TopicList';
 const TopNavigationBar = ({topics, favPhotoList, updateGetTopicPhotos}) => {
     return (
       <div className="top-nav-bar">
-        <span className="top-nav-bar__logo">PhotoLabs</span>
+        <a href='/'><span className="top-nav-bar__logo">PhotoLabs</span></a> 
         <TopicList topics={topics} updateGetTopicPhotos={updateGetTopicPhotos}/>
         <FavBadge  isFavPhotoExist={favPhotoList.length > 0}/>
       </div>

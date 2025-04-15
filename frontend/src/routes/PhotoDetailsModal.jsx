@@ -1,6 +1,7 @@
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoListItem from '../components/PhotoListItem';
+import PhotoFavButton from '../components/PhotoFavButton';
 
 
 const PhotoDetailsModal = ({photo, onClosePhotoDetailsModal, updateToFavPhotoIds, onPhotoSelect}) => {
@@ -11,6 +12,11 @@ const PhotoDetailsModal = ({photo, onClosePhotoDetailsModal, updateToFavPhotoIds
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div>
+        <div className="main-image-photo-fav-container">
+        <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photo={photo}/>
+
+        </div>
+
         <img className="photo-details-modal__image" src={photo.urls.full} />
       </div>
       <div className="photo-details-modal__header">
@@ -31,18 +37,26 @@ const PhotoDetailsModal = ({photo, onClosePhotoDetailsModal, updateToFavPhotoIds
       </div>
       </div>
       <div className="photo-details-modal__images">
-      <div>
-        Similar Photos
-      </div>
-      <ul className="photo-list">
-       {Object.entries(photo.similar_photos).map((photosItem) => (
-     <PhotoListItem onPhotoSelect={onPhotoSelect}
-      key={photosItem[1].id}
-       photosItem={photosItem[1]}
-       updateToFavPhotoIds={updateToFavPhotoIds} 
-    />
-))}
-    </ul>
+        
+{/* check if similar photos object exists, if it exists display it, if it doesn't display nothing */}
+    {photo.similar_photos ? 
+        <div>
+            <div>
+                Similar Photos
+            </div>
+            <ul className="photo-list">
+
+                {Object.entries(photo.similar_photos).map((photosItem) => (
+                    <PhotoListItem onPhotoSelect={onPhotoSelect}
+                    key={photosItem[1].id}
+                    photosItem={photosItem[1]}
+                    updateToFavPhotoIds={updateToFavPhotoIds} 
+                    /> 
+                ))}
+            </ul>
+        </div>
+      :<></>
+    }      
       </div>
     </div>
   )
