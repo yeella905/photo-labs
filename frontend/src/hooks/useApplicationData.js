@@ -70,6 +70,15 @@ export const useApplicationData = () => {
     dispatch({ type: ACTIONS.TOGGLE_FAV_PHOTO, payload: photo });
   };
 
+
+const updateGetTopicPhotos = (topic_id) => {
+    fetch(`http://localhost:8001/api/topics/${topic_id}/photos`)
+      .then((res) => res.json())
+      .then((data) => dispatch({ type: ACTIONS.LOAD_PHOTO, payload: data }));
+
+}
+ 
+
   useEffect(() => {
     fetch("http://localhost:8001/api/topics")
       .then((res) => res.json())
@@ -84,6 +93,7 @@ export const useApplicationData = () => {
     state,
     onPhotoSelect,
     onClosePhotoDetailsModal,
-    updateToFavPhotoIds
+    updateToFavPhotoIds,
+    updateGetTopicPhotos
   };
 };

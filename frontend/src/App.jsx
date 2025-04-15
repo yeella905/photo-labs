@@ -9,7 +9,8 @@ const App = () => {
     state,
     onPhotoSelect,
     updateToFavPhotoIds,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    updateGetTopicPhotos
   } = useApplicationData();
 
   return (
@@ -18,6 +19,7 @@ const App = () => {
         state={state}
         updateToFavPhotoIds={updateToFavPhotoIds}
         onPhotoSelect={onPhotoSelect}
+        updateGetTopicPhotos={updateGetTopicPhotos}
       />
       {state.showModal && (
         <PhotoDetailsModal

@@ -6,9 +6,9 @@ const topicsItem = {
   label: "Nature",
 };
 
-const TopicListItem = ({topicsItem}) => {
+const TopicListItem = ({topicsItem, updateGetTopicPhotos}) => {
   return (
-    <div className="topic-list__item">
+    <div className="topic-list__item" onClick={() => updateGetTopicPhotos(topicsItem.id)}>
       <p>{topicsItem.title}</p>
     </div>
   );
