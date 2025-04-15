@@ -41,3 +41,17 @@ div.photo-list__item {
     }
   }
 }
+
+
+@media (max-width: 1024px) {
+    div.photo-list__item {
+      flex: 1 1 calc(50% - 2rem);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    div.photo-list__item {
+      flex: 1 1 100%;
+      margin: 1rem 0;
+    }
+  }
